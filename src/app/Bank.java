@@ -96,7 +96,7 @@ public class Bank {
 		for(int i = 0; i < klienci.length; ++i){
 			if(klienci[i].getPesel().equals(pesel)){
 				System.out.println("Istnieje juz klient o takim numerze pesel");
-				break;
+				return;
 			}
 		}
 		klient = new Klient(pesel, haslo);
