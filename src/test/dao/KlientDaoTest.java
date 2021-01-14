@@ -1,6 +1,5 @@
 package test.dao;
 
-import entity.Konto;
 import org.junit.Before;
 import org.junit.Test;
 import test.Dane;
@@ -17,9 +16,31 @@ public class KlientDaoTest {
 	}
 	
 	@Test
-	public void dodajKlientaZwieksza(){
-		for(Konto k : dane.konta){
-			assertTrue(k.getStanKonta() >= 0);
-		}
+	public void addZwiekszaTabliceKlientowO1(){
+		int length1 = dane.klientDao.getAll().length;
+		dane.klientDao.add(dane.klienci[0]);
+		int length2 = dane.klientDao.getAll().length;
+		
+		assertTrue(length2 == length1 + 1);
+	}
+	
+	@Test
+	public void updateNieZmieniaDlugosciTablicy(){
+		dane.klientDao.add(dane.klienci[1]);
+		int length1 = dane.klientDao.getAll().length;
+		dane.klientDao.update(dane.klienci[1]);
+		int length2 = dane.klientDao.getAll().length;
+		
+		assertTrue(length2 == length1);
+	}
+	
+	@Test
+	public void deleteZmniejszaDlugoscTablicyO1(){
+		dane.klientDao.add(dane.klienci[2]);
+		int length1 = dane.klientDao.getAll().length;
+		dane.klientDao.delete(dane.klienci[2]);
+		int length2 = dane.klientDao.getAll().length;
+		
+		assertTrue(length2 == length1 - 1);
 	}
 }

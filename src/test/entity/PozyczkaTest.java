@@ -23,6 +23,4 @@ public class PozyczkaTest {
 		}
 	}
 	
-	@Test
-	public void
 }

@@ -30,17 +30,16 @@ public class Dane {
 		lokaty = new Lokata[length];
 		pozyczki = new Pozyczka[length];
 		
+		klientDao = new KlientDao();
+		kontoDao = new KontoDao();
+		lokataDao = new LokataDao();
+		pozyczkaDao = new PozyczkaDao();
 		
 		for(int i = 0; i < length; ++i){
 			klienci[i] = new Klient("1234523213435", "haslo" + i);
 			konta[i] = new Konto(klienci[i], 12323.22, new Pozyczka[0], new Lokata[0]);
 			lokaty[i] = new Lokata( 123, 0.035, LocalDateTime.now(), LocalDateTime.now().plusMonths(1));
 			pozyczki[i] = new Pozyczka(123, 0.035, 12, LocalDateTime.now(), LocalDateTime.now().plusMonths(1));
-			
-			klientDao = new KlientDao();
-			kontoDao = new KontoDao();
-			lokataDao = new LokataDao();
-			pozyczkaDao = new PozyczkaDao();
 		}
 	}
 }

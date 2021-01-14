@@ -11,7 +11,7 @@ public class PozyczkaDao implements Dao<Pozyczka> {
 	
 	@Override
 	public void add(Pozyczka pozyczka) {
-		Pozyczka [] pozyczki2 = new Pozyczka [pozyczki.length];
+		Pozyczka [] pozyczki2 = new Pozyczka [pozyczki.length + 1];
 		for(int i = 0; i < pozyczki.length; ++i) pozyczki2[i] = pozyczki[i];
 		pozyczki2[pozyczki.length] = pozyczka;
 		pozyczki = pozyczki2;
