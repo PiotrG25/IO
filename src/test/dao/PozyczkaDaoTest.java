@@ -1,11 +1,16 @@
 package test.dao;
 
 import org.junit.Before;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import org.junit.runners.MethodSorters;
 import test.Dane;
 
 import static org.junit.Assert.*;
 
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+@Category({DaoTests.class})
 public class PozyczkaDaoTest {
 	
 	Dane dane;
@@ -20,8 +25,9 @@ public class PozyczkaDaoTest {
 		int length1 = dane.pozyczkaDao.getAll().length;
 		dane.pozyczkaDao.add(dane.pozyczki[0]);
 		int length2 = dane.pozyczkaDao.getAll().length;
-		
-		assertTrue(length2 == length1 + 1);
+
+		assertEquals(length2, length1 + 1);
+		assertEquals(dane.pozyczki[0], dane.pozyczkaDao.getAll()[0]);
 	}
 	
 	@Test

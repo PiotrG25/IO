@@ -1,5 +1,7 @@
 package entity;
 
+import org.junit.experimental.categories.Category;
+
 public class Klient {
 	private String pesel, haslo;
 	
